@@ -18,6 +18,4 @@ spec:
         - name: redis
           image: redis
         - name: hello-redis
-          image: docker.io/erhangundogan/hello-redis
-          imagePullPolicy: Always
-
+          image: erhangundogan/hello-redis:1.1.0
