@@ -1,8 +1,9 @@
 FROM node:alpine
-RUN apk add dumb-init curl
+RUN apk add dumb-init
 ENV NODE_ENV production
-WORKDIR /usr/src/app
+WORKDIR /app
 COPY --chown=node:node . .
+COPY --chown=node:node src src
 RUN npm ci --only=production
 USER node
 CMD ["dumb-init", "node", "index.js"]

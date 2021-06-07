@@ -18,6 +18,6 @@ spec:
         - name: redis
           image: redis
         - name: hello-redis
-          image: erhangundogan/hello-redis:1.1.1
+          image: erhangundogan/hello-redis:1.1.2
           imagePullPolicy: IfNotPresent
 
