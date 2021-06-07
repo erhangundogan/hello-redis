@@ -1,8 +1,6 @@
 const express = require('express');
 const Redis = require("ioredis");
 const bodyParser = require('body-parser');
-const os = require('os');
-const fs = require('fs');
 
 const pino = require('pino');
 const expressPino = require('express-pino-logger');
@@ -16,21 +14,6 @@ const redis = new Redis();
 const jsonParser = bodyParser.json();
 
 const port = process.env.PORT || 9000;
-
-const namespace = process.env.KUBERNETES_NAMESPACE || '-';
-const podName = process.env.KUBERNETES_POD_NAME || os.hostname();
-const nodeName = process.env.KUBERNETES_NODE_NAME || '-';
-const applicationVersion = JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
-const containerImage = process.env.CONTAINER_IMAGE || 'erhangundogan/hello-redis:' + applicationVersion
-
-logger.debug();
-logger.debug('Configuration');
-logger.debug('-----------------------------------------------------');
-logger.debug('PORT=' + port);
-logger.debug('KUBERNETES_NAMESPACE=' + namespace);
-logger.debug('KUBERNETES_POD_NAME=' + podName);
-logger.debug('KUBERNETES_NODE_NAME=' + nodeName);
-logger.debug('CONTAINER_IMAGE=' + containerImage);
 
 redis.on('connect', function() {
   logger.debug('redis connected');
