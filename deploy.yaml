@@ -18,17 +18,17 @@ spec:
         - name: redis
           image: redis
         - name: hello-redis
-          image: erhangundogan/hello-redis:1.2.0
+          image: erhangundogan/hello-redis:1.2.1
           imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: connect
+  name: hello-redis-app
 spec:
   type: ClusterIP
   selector:
-    app: connect
+    app: hello-redis-app
   ports:
     - port: 9000
       targetPort: 9000
