@@ -17,4 +17,7 @@ pull:
 
 .PHONY: deploy
 deploy:
+	minikube start
+	eval $(minikube docker-env)
+	make pull
 	kubectl apply -f deploy.yaml
