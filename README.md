@@ -1,7 +1,7 @@
 hello-redis
 ===========
 
-NodeJS backend to read and write for Redis. Repo includes Dockerfile and minikube deployment script.
+NodeJS backend to read and write from Redis. This is a demonstration repo and it should not be deployed to production.
 
 ## Run
 
