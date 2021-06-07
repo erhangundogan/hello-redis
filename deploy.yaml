@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: hello-redis
+spec:
+  selector:
+    matchLabels:
+      app: hello-redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+        - name: hello-redis
+          image: docker.io/erhangundogan/hello-redis
+          imagePullPolicy: Always
+
