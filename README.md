@@ -8,6 +8,8 @@ NodeJS backend to read and write from Redis. This is a demonstration repo and it
 You need running minikube cluster with docker host to pull and deploy image.
 
 ```bash
+git clone git@github.com:erhangundogan/hello-redis.git
+cd hello-redis
 make pull
 
 # it will deploy to default kubernetes namespace
